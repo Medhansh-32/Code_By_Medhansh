@@ -4,9 +4,9 @@ public class Monotone {
 
 	public static boolean check(ArrayList<Integer> data) {
 		int flag=0;
-	if(data.get(0)>data.get(1)) {
+	if(data.get(0)>=data.get(1)) {
 		for(int i=0;i<data.size()-1;i++) {
-			if(data.get(i)>data.get(i+1)) {
+			if(data.get(i)>=data.get(i+1)) {
 		flag=1;
 		}else {
 			flag=0;
@@ -14,9 +14,9 @@ public class Monotone {
 	}
 	}
 	}
-		if(data.get(0)<data.get(1)) {
+		if(data.get(0)<=data.get(1)) {
 			for(int i=0;i<data.size()-1;i++) {
-				if(data.get(i)<data.get(i+1)) {
+				if(data.get(i)<=data.get(i+1)) {
 			flag=1;
 			
 			}else {
