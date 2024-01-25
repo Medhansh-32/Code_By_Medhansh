@@ -45,7 +45,7 @@ public static Node insertLast(Node n1,int data) {
 	 tail=temp;
 return tail;	
 }
-public static void removeLast(Node n1) {
+public static Node removeLast(Node n1) {
 Node temp=n1;
 Node ptr=null;
 	while(temp.next!=null) {
@@ -53,7 +53,9 @@ Node ptr=null;
 		temp=temp.next;
 		
 	}
+	tail=ptr;
 	ptr.next=null;
+	return tail;
 }
 public static Node addFirst(Node n1,int data) {
 	Node newNode=new Node(data);
@@ -78,19 +80,38 @@ while(count!=pos-1) {
 }
 Node newnode=new Node(data);
 newnode.next=ptr.next;
+ptr.next.prev=newnode;
 ptr.next=newnode;
 newnode.prev=ptr;
-ptr.next.prev=newnode;
+
+}
+public static void removebetween(Node n1,int pos) {
+	int count=1;
+	Node  temp=n1;
+	while(count!=pos-1) {
+		temp=temp.next;
+		count++;
+	}
+	Node ptr=temp.next;
+	ptr.next.prev=temp;
+	temp.next=ptr.next;
+
 }
 	public static void main(String[] args) {
 	Node n1=new Node(1);
 	Node n2=new Node(2);
 	n1.next=n2;
 	n2.prev=n1;
+	
 	tail=insertLast(n1,3);
+	addBetween(n1,2,5);
+	n1=addFirst(n1,0);
 	tail=insertLast(n1,4);
 	tail=insertLast(n1,5 );
+	tail=removeLast(n1);
+	n1=removeFirst(n1);
 	addBetween(n1,3,5);
+	removebetween(n1,3);
 	print(n1);
 	printrev(tail);
 	
