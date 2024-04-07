@@ -1,6 +1,9 @@
-package linked_list;
+ //package linked_list;
+ //git Demo practice
+
 public class Search_LL {
-	public static class Node{
+	
+	static class Node{
 		int data;
 		Node next;
 		
